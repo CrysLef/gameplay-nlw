@@ -1,14 +1,17 @@
 import styled from 'styled-components/native';
 import theme from '../../global/styles/theme'
+import { StyleSheet } from 'react-native'
 
-export const Container = styled.TouchableOpacity`
-   width: 100%;
-   height: 56px;
-   background-color: ${theme.COLORS.PRIMARY};
-   border-radius: 8px;
-   flex-direction: row;
-   align-items: center;
-`
+export const styles = StyleSheet.create({
+    container: {
+        width: '100%',
+        height: 56,
+        backgroundColor: theme.COLORS.PRIMARY,
+        borderRadius: 8,
+        flexDirection: 'row',
+        alignItems: 'center',
+    }
+})
 
 export const Title = styled.Text`
     flex: 1;
