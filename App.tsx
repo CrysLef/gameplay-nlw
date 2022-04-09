@@ -5,7 +5,7 @@ import { Rajdhani_500Medium, Rajdhani_700Bold } from '@expo-google-fonts/rajdhan
 
 import { StatusBar } from 'react-native'
 import Background from "./src/components/Background";
-import SignIn from "./src/screens/SignIn";
+import Routes from "./src/routes";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -27,7 +27,7 @@ export default function App() {
       translucent
       />
       
-      <SignIn />
+      <Routes />
     </Background>
   );
 }
