@@ -1,10 +1,10 @@
 import { ReactNode } from 'react'
 
-import { LinearGradient } from 'expo-linear-gradient'
+import { LinearGradient, LinearGradientProps } from 'expo-linear-gradient'
 
 import theme from '../../global/styles/theme'
 
-type Props = {
+type Props = LinearGradientProps &{
     children: ReactNode;
 }
 
