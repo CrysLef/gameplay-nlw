@@ -18,10 +18,9 @@ export default function Background({ children } : Props){
     style={{ flex: 1 }}
     colors={[SECONDARY_80, SECONDARY_100]}
     >
-        
+
       { children }
-        
-        
+
     </LinearGradient>
   )
 }
