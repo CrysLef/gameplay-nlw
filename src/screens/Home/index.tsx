@@ -6,14 +6,19 @@ import Profile from '../../components/Profile'
 import ButtonAdd from '../../components/ButtonAdd'
 import CategorySelect from '../../components/CategorySelect'
 import ListHeader from '../../components/ListHeader'
+import Background from "../../components/Background";
 import ListDivider from '../../components/ListDivider'
 
 import { View, FlatList } from 'react-native';
 import Appointment from '../../components/Appointment';
+import theme from '../../global/styles/theme';
+import { useNavigation } from '@react-navigation/native'
 
 
 export default function Home(){
+  const { SECONDARY_80, SECONDARY_100 } = theme.COLORS
   const [category, setCategory] = useState('')
+  const navigation = useNavigation()
 
   const appointments = [
     {
@@ -47,8 +52,12 @@ export default function Home(){
     categoryId === category ? setCategory('') : setCategory(categoryId)
   }
 
+  function handleAppointmentDetails(){
+    navigation.navigate('AppointmentDetails')
+  }
+
   return (
-    <View>
+    <Background colors={[SECONDARY_80, SECONDARY_100]}>
       <Header>
           <Profile />
           <ButtonAdd />
@@ -67,16 +76,19 @@ export default function Home(){
 
         <FlatList
           showsVerticalScrollIndicator={false}
+          ItemSeparatorComponent={() => <ListDivider />}
           style={flatstyle.matches}
           data={appointments}
           keyExtractor={item => item.id}
           renderItem={({ item }) => (
-            <Appointment data={item} />
+            <Appointment 
+              data={item} 
+              onPress={handleAppointmentDetails}
+            />
           )}
-          ItemSeparatorComponent={() => <ListDivider />}
         />
           
        
-    </View>
+    </Background>
   );
 }
