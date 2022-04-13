@@ -1,14 +1,14 @@
 import {
     Container,
-    User,
     Greetings,
+    Message,
+    User,
     Username,
-    Message
-} from './styles';
+} from './styles'
+import { View, ViewProps } from 'react-native'
 
-import Avatar from '../Avatar';
+import Avatar from '../Avatar'
 
-import { View, ViewProps } from 'react-native';
 
 export default function Profile({...rest}: ViewProps){
   return (
