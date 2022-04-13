@@ -1,45 +1,53 @@
 import {
-    Container,
-    Label,
-    Form,
-    Select,
-    Img,
-    SelectBody,
+    CaracteresLimit,
     Column,
+    Container,
     Divider,
     Field,
-    CaracteresLimit,
-    Footer
-} from './styles';
+    Footer,
+    Form,
+    Label,
+    Img,
+    Select,
+    SelectBody,
+} from './styles'
+
+import { RectButton } from 'react-native-gesture-handler'
+import { ScrollView } from 'react-native-gesture-handler'
+import { View, Platform } from 'react-native'
+import { useState } from 'react'
+import Guilds from '../Guilds'
+
+import CategorySelect from '../../components/CategorySelect'
+import SmallInput from '../../components/SmallInput'
+import Background from '../../components/Background'
+import { GuildProps } from '../../components/Guild'
+import GuildIcon from '../../components/GuildIcon'
+import ModalView from '../../components/ModalView'
+import TextArea from '../../components/TextArea'
+import Header from '../../components/Header'
+import Button from '../../components/Button'
 
 import { Feather } from '@expo/vector-icons'
-import { View, Platform } from 'react-native';
-import theme from '../../global/styles/theme';
-import Header from '../../components/Header'
-import CategorySelect from '../../components/CategorySelect';
-import { useState } from 'react';
-import { RectButton } from 'react-native-gesture-handler';
-import ModalView from '../../components/ModalView'
-import Guilds from '../Guilds';
-import GuildIcon from '../../components/GuildIcon'
-import { ScrollView } from 'react-native-gesture-handler';
-import SmallInput from '../../components/SmallInput'
-import TextArea from '../../components/TextArea'
-import Button from '../../components/Button'
-import { GuildProps } from '../../components/Guild';
+import theme from '../../global/styles/theme'
 
 
 export default function AppointmentCreate(){
-    const [category, setCategory] = useState('')
-    const [openGuildsModal, setOpenGuildsModal] = useState(false)
     const [guild, setGuild] = useState<GuildProps>({} as GuildProps)
+    const [openGuildsModal, setOpenGuildsModal] = useState(false)
+    const [category, setCategory] = useState('')
+    const { SECONDARY_80, SECONDARY_100 } = theme.COLORS
 
     function handleCategorySelect(categoryId: string) {
-        categoryId === category ? setCategory('') : setCategory(categoryId)
+        setCategory(categoryId)
       }
 
     function handleOpenGuilds() {
         setOpenGuildsModal(true)
+    }
+
+    function handleCloseModal() {
+        setOpenGuildsModal(false)
     }
 
     function handleGuildSelect(guildSelected: GuildProps) {
@@ -50,94 +58,97 @@ export default function AppointmentCreate(){
 
     return (
         <Container behavior={Platform.OS === 'ios' ? 'padding' : 'height' }>
-            <ScrollView>
-                <Header title='Agendar partida' />
+            <Background colors={[SECONDARY_80, SECONDARY_100]}>
 
-                <Label
-                    style={{ marginLeft: 24, marginTop: 36, marginBottom: 18}}
-                >
-                    Categoria
-                </Label>
+                <ScrollView>
+                    <Header title='Agendar partida' />
 
-                <CategorySelect 
-                    hasCheckBox
-                    setCategory={handleCategorySelect}
-                    categorySelected={category}
-                />
+                    <Label
+                        style={{ marginLeft: 24, marginTop: 36, marginBottom: 18}}
+                    >
+                        Categoria
+                    </Label>
 
-                <Form>
-                    <RectButton onPress={handleOpenGuilds}>
-                        <Select>
-                            {
-                                guild.icon
-                                ? <GuildIcon />
-                                : <Img />
-                            }
-
-                            <SelectBody>
-                                <Label>
-                                    {
-                                        guild.name
-                                        ? guild.name
-                                        : 'Selecionar um servidor'
-                                    }
-                                </Label>
-                            </SelectBody>
-
-                            <Feather
-                                name='chevron-right'
-                                color={theme.COLORS.HEADING}
-                                size={18}
-                            />
-
-                        </Select>
-                    </RectButton>
-
-                    <Field>
-                        <View>
-                            <Label>Dia e mês</Label>
-                        
-                            <Column>
-                                <SmallInput maxLength={2} />
-                                <Divider>/</Divider>
-                                <SmallInput maxLength={2} />
-                            </Column>
-                        </View>
-                        <View>
-                            <Label>Horário</Label>
-                        
-                            <Column>
-                                <SmallInput maxLength={2} />
-                                <Divider>:</Divider>
-                                <SmallInput maxLength={2} />
-                            </Column>
-                        </View>
-                    </Field>
-
-                    
-                    <Field style={{ marginBottom: 12 }} >
-                        <Label>Descrição</Label>
-                        <CaracteresLimit>Max 100 caracteres</CaracteresLimit>
-                    </Field>
-
-                    <TextArea 
-                        multiline
-                        maxLength={100}
-                        numberOfLines={5}
-                        autoCorrect={false}
+                    <CategorySelect 
+                        hasCheckBox
+                        setCategory={handleCategorySelect}
+                        categorySelected={category}
                     />
 
-                    <Footer>
-                        <Button title="Agendar" />
-                    </Footer>
+                    <Form>
+                        <RectButton onPress={handleOpenGuilds}>
+                            <Select>
+                                {
+                                    guild.icon
+                                    ? <GuildIcon />
+                                    : <Img />
+                                }
 
-                </Form>
-            </ScrollView>
+                                <SelectBody>
+                                    <Label>
+                                        {
+                                            guild.name
+                                            ? guild.name
+                                            : 'Selecionar um servidor'
+                                        }
+                                    </Label>
+                                </SelectBody>
 
-            <ModalView visible={openGuildsModal} >
+                                <Feather
+                                    name='chevron-right'
+                                    color={theme.COLORS.HEADING}
+                                    size={18}
+                                />
+
+                            </Select>
+                        </RectButton>
+
+                        <Field>
+                            <View>
+                                <Label style={{ marginBottom: 12 }}>Dia e mês</Label>
+                            
+                                <Column>
+                                    <SmallInput maxLength={2} />
+                                    <Divider>/</Divider>
+                                    <SmallInput maxLength={2} />
+                                </Column>
+                            </View>
+                            <View>
+                                <Label style={{ marginBottom: 12 }}>Horário</Label>
+                            
+                                <Column>
+                                    <SmallInput maxLength={2} />
+                                    <Divider>:</Divider>
+                                    <SmallInput maxLength={2} />
+                                </Column>
+                            </View>
+                        </Field>
+
+                        
+                        <Field style={{ marginBottom: 12 }} >
+                            <Label>Descrição</Label>
+                            <CaracteresLimit>Max 100 caracteres</CaracteresLimit>
+                        </Field>
+
+                        <TextArea 
+                            multiline
+                            maxLength={100}
+                            numberOfLines={5}
+                            autoCorrect={false}
+                        />
+
+                        <Footer>
+                            <Button title="Agendar" />
+                        </Footer>
+
+                    </Form>
+                </ScrollView>
+            </Background>
+
+            <ModalView visible={openGuildsModal} closeModal={handleCloseModal} >
                 <Guilds handleGuildSelect={handleGuildSelect} />
             </ModalView>
 
         </Container>
-    );
+    )
 }
