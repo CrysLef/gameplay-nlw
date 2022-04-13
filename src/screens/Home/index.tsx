@@ -56,11 +56,15 @@ export default function Home(){
     navigation.navigate('AppointmentDetails')
   }
 
+  function handleAppointmentCreate(){
+    navigation.navigate('AppointmentCreate')
+  }
+
   return (
     <Background colors={[SECONDARY_80, SECONDARY_100]}>
       <Header>
-          <Profile />
-          <ButtonAdd />
+          <Profile style={{marginBottom: 40}} />
+          <ButtonAdd onPress={handleAppointmentCreate} />
       </Header>
         <CategorySelect
           categorySelected={category}
