@@ -1,24 +1,24 @@
-import { useState } from 'react';
-
-import { Header, Content, flatstyle } from './styles';
-
-import Profile from '../../components/Profile'
-import ButtonAdd from '../../components/ButtonAdd'
-import CategorySelect from '../../components/CategorySelect'
-import ListHeader from '../../components/ListHeader'
-import Background from "../../components/Background";
-import ListDivider from '../../components/ListDivider'
-
-import { View, FlatList } from 'react-native';
-import Appointment from '../../components/Appointment';
-import theme from '../../global/styles/theme';
 import { useNavigation } from '@react-navigation/native'
+import { useState } from 'react'
+
+import { Header, Matches } from './styles'
+import { FlatList } from 'react-native'
+
+import CategorySelect from '../../components/CategorySelect'
+import Appointment from '../../components/Appointment'
+import ListDivider from '../../components/ListDivider'
+import Background from '../../components/Background'
+import ListHeader from '../../components/ListHeader'
+import ButtonAdd from '../../components/ButtonAdd'
+import Profile from '../../components/Profile'
+
+import theme from '../../global/styles/theme'
 
 
 export default function Home(){
-  const { SECONDARY_80, SECONDARY_100 } = theme.COLORS
   const [category, setCategory] = useState('')
   const navigation = useNavigation()
+  const { SECONDARY_80, SECONDARY_100 } = theme.COLORS
 
   const appointments = [
     {
@@ -71,17 +71,16 @@ export default function Home(){
           setCategory={handleCategorySelect}
         />
 
-        <Content>
-          <ListHeader
-            title='Partidas agendadas'
-            subtitle='Total 6'
-          />
-        </Content>
+        <ListHeader
+          title='Partidas agendadas'
+          subtitle='Total 6'
+          style={{ marginTop: 40 }}
+        />
 
-        <FlatList
+        <Matches
           showsVerticalScrollIndicator={false}
           ItemSeparatorComponent={() => <ListDivider />}
-          style={flatstyle.matches}
+          contentContainerStyle={{ paddingBottom: 69 }}
           data={appointments}
           keyExtractor={item => item.id}
           renderItem={({ item }) => (
