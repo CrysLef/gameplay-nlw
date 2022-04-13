@@ -1,31 +1,26 @@
+import { RectButton, RectButtonProps } from 'react-native-gesture-handler'
+
 import {
+  Category,
   Container,
   Content,
-  Header,
-  Title,
-  PlayerInfo,
-  Category,
-  Player,
   Date,
   DateInfo,
-  Footer
-} from './styles';
+  Footer,
+  GuildIconContainer,
+  Header,
+  Title,
+  Player,
+  PlayerInfo,
+} from './styles'
 
-import { RectButton, RectButtonProps } from 'react-native-gesture-handler';
+import { categories } from '../../utils/categories'
+import { GuildProps } from '../Guild'
 
-import GuildIcon from '../GuildIcon'
-import PlayersSvg from '../../assets/player.svg'
 import CalendarSvg from '../../assets/calendar.svg'
-
-import { categories } from '../../utils/categories';
-import theme from '../../global/styles/theme';
-
-export type GuildProps = {
-  id: string;
-  name: string;
-  icon: null;
-  owner: boolean;
-}
+import PlayersSvg from '../../assets/player.svg'
+import theme from '../../global/styles/theme'
+import GuildIcon from '../GuildIcon'
 
 export type AppointmentProps = {
     id: string;
@@ -42,13 +37,15 @@ type Props = RectButtonProps & {
 
 export default function Appointment({ data, ...rest }: Props){
   const [category] = categories.filter(item => item.id === data.category)
-  const { PRIMARY, ON } = theme.COLORS
+  const { PRIMARY, ON, SECONDARY_50, SECONDARY_70 } = theme.COLORS
   const { owner } = data.guild
 
   return (
     <RectButton {...rest}>
         <Container>
-            <GuildIcon />
+            <GuildIconContainer colors={[SECONDARY_50, SECONDARY_70]}>
+              <GuildIcon />
+            </GuildIconContainer>
             <Content>
               <Header>
                 <Title>
@@ -62,7 +59,7 @@ export default function Appointment({ data, ...rest }: Props){
                 <DateInfo>
                   <CalendarSvg />
                   <Date>
-                    {data.date}
+                    { data.date }
                   </Date>
                 </DateInfo>
                 <PlayerInfo>
@@ -75,5 +72,5 @@ export default function Appointment({ data, ...rest }: Props){
             </Content>
         </Container>
     </RectButton>
-  );
+  )
 }
