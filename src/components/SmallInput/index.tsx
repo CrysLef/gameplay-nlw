@@ -1,6 +1,5 @@
-import { Input } from './styles';
-
-import { TextInputProps } from 'react-native';
+import { Input } from './styles'
+import { TextInputProps } from 'react-native'
 
 
 export default function SmallInput({...rest}: TextInputProps){
@@ -9,5 +8,5 @@ export default function SmallInput({...rest}: TextInputProps){
       keyboardType='numeric'
       {...rest} 
     />
-  );
+  )
 }
