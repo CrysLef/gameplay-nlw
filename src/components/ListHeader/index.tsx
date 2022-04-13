@@ -1,20 +1,18 @@
-import {
-    Container,
-    Title,
-    Subtitle
-} from './styles';
+import { Container, Title, Subtitle } from './styles'
 
-type Props = {
+import { ViewProps } from 'react-native'
+
+type Props = ViewProps & {
     title: string;
     subtitle: string;
 }
 
 
-export default function ListHeader({ title, subtitle }: Props){
+export default function ListHeader({ title, subtitle, ...rest }: Props){
   return (
-    <Container>
+    <Container {...rest}>
         <Title>{ title }</Title>
         <Subtitle>{ subtitle }</Subtitle>
     </Container>
-  );
+  )
 }
