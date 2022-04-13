@@ -1,23 +1,26 @@
 import {
-    liststyle,
-    Title,
-    Subtitle,
     Banner,
     BannerContent,
-    Footer
-} from './styles';
+    Footer,
+    MembersList,
+    Subtitle,
+    Title,
+} from './styles'
 
-import { BorderlessButton } from 'react-native-gesture-handler';
-import { Fontisto } from '@expo/vector-icons'
-import Background from '../../components/Background';
-import theme from '../../global/styles/theme';
-import Header from '../../components/Header'
-import BannerImg from '../../assets/banner.png'
-import ListHeader from '../../components/ListHeader'
-import { FlatList } from 'react-native';
-import Members from '../../components/Members'
+import { BorderlessButton } from 'react-native-gesture-handler'
+import { FlatList } from 'react-native'
+
 import ListDivider from '../../components/ListDivider'
-import ButtonIcon from '../../components/ButtonIcon';
+import Background from '../../components/Background'
+import ButtonIcon from '../../components/ButtonIcon'
+import ListHeader from '../../components/ListHeader'
+import Members from '../../components/Members'
+import Header from '../../components/Header'
+
+import { Fontisto } from '@expo/vector-icons'
+import theme from '../../global/styles/theme'
+import BannerImg from '../../assets/banner.png'
+
 
 export default function AppointmentDetails(){
     const { SECONDARY_80, SECONDARY_100, PRIMARY } = theme.COLORS
@@ -36,7 +39,6 @@ export default function AppointmentDetails(){
             status: 'offline',
         },
     ]
-
 
     return (
         <Background colors={[SECONDARY_80, SECONDARY_100]}>
@@ -61,9 +63,9 @@ export default function AppointmentDetails(){
             <ListHeader 
                 title="Jogadores"
                 subtitle="Total 3"
+                style={{ marginTop: 27}}
             />
-            <FlatList
-                style={liststyle.membersList}
+            <MembersList
                 data={members}
                 keyExtractor={item => item.id}
                 renderItem={({ item }) => (
@@ -77,5 +79,5 @@ export default function AppointmentDetails(){
                 />
             </Footer>
         </Background>
-    );
+    )
 }
