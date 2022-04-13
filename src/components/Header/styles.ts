@@ -1,18 +1,18 @@
-import { getStatusBarHeight } from 'react-native-iphone-x-helper';
-import styled from 'styled-components/native';
-import theme from '../../global/styles/theme';
-import { LinearGradient } from 'expo-linear-gradient';
+import styled from 'styled-components/native'
+import { LinearGradient } from 'expo-linear-gradient'
+import theme from '../../global/styles/theme'
+import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 
 
 export const Container = styled(LinearGradient)`
    width: 100%;
    height: 104px;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
    padding-top: ${getStatusBarHeight()}px;
    padding-left: 24px;
    padding-right: 24px;
-   justify-content: center;
-   align-items: center;
-   flex-direction: row;
 `
 
 export const Title = styled.Text`

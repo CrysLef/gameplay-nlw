@@ -1,14 +1,12 @@
-import { ReactNode } from 'react';
-import { BorderlessButton } from 'react-native-gesture-handler';
-import { Feather } from '@expo/vector-icons'
-import { Container, Title } from './styles';
+import { BorderlessButton } from 'react-native-gesture-handler'
+import { Container, Title } from './styles'
+import { View } from 'react-native';
 
-import {
-  View,
-  Text
-} from 'react-native';
-import theme from '../../global/styles/theme';
 import { useNavigation } from '@react-navigation/native';
+import { ReactNode } from 'react';
+
+import { Feather } from '@expo/vector-icons'
+import theme from '../../global/styles/theme';
 
 type Props = {
     title: string;
@@ -17,28 +15,27 @@ type Props = {
 
 
 export default function Header({ title, action }: Props){
-  const { SECONDARY_80, SECONDARY_100, HEADING } = theme.COLORS
   const navigation = useNavigation()
+  const { SECONDARY_80, SECONDARY_100, HEADING } = theme.COLORS
 
   function handleGoBack(){
     navigation.goBack()
   }
-  
 
   return (
     <Container colors={[SECONDARY_80, SECONDARY_100]}>
         <BorderlessButton onPress={handleGoBack}>
             <Feather
-                name='arrow-left'
-                size={24}
-                color={HEADING}
+              name='arrow-left'
+              size={24}
+              color={HEADING}
             />
         </BorderlessButton>
 
         <Title>{ title }</Title>
 
         {
-            action && <View>{ action }</View>
+          action ? <View>{ action }</View> : <View style={{ width: 24 }} />
         }
 
     </Container>
