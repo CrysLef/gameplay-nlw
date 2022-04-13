@@ -1,21 +1,22 @@
 import { 
   Container,
-  Illustration,
   Content,
+  Illustration,
+  Subtitle,
   Title,
-  Subtitle
 } from './styles'
 
+import Background from "../../components/Background"
 import ButtonIcon from '../../components/ButtonIcon'
 
-import illustrationImage from '../../assets/illustration.png' 
 import { useNavigation } from '@react-navigation/native'
-import Background from "../../components/Background";
-import theme from '../../global/styles/theme';
+
+import illustrationImage from '../../assets/illustration.png' 
+import theme from '../../global/styles/theme'
 
 export default function SignIn(){
-  const { SECONDARY_80, SECONDARY_100 } = theme.COLORS
   const navigation = useNavigation()
+  const { SECONDARY_80, SECONDARY_100 } = theme.COLORS
   
   function handleSignIn() {
     navigation.navigate('Home')  
@@ -26,32 +27,30 @@ export default function SignIn(){
     <Background colors={[SECONDARY_80, SECONDARY_100]}>
 
       <Container>
-      
           <Illustration 
-          source={illustrationImage}
-          resizeMode='stretch' 
+            source={illustrationImage}
+            resizeMode='stretch' 
           />
-        <Content>
 
+        <Content>
           <Title>
-          Conecte-se {'\n'}
-          e organize suas {'\n'}
-          jogatinas
+            Conecte-se {'\n'}
+            e organize suas {'\n'}
+            jogatinas
           </Title>
 
           <Subtitle>
-          Crie grupos para jogar seus games {`\n`}
-          favoritos com seus amigos
+            Crie grupos para jogar seus games {`\n`}
+            favoritos com seus amigos
           </Subtitle>
 
           <ButtonIcon 
-          title='Entrar com Discord'
-          onPress={handleSignIn}
+            title='Entrar com Discord'
+            onPress={handleSignIn}
           />
-
         </Content>
 
       </Container>
     </Background>
-  );
+  )
 }

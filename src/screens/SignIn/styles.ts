@@ -1,5 +1,5 @@
-import styled from "styled-components/native";
-import theme from "../../global/styles/theme";
+import styled from "styled-components/native"
+import theme from "../../global/styles/theme"
 
 export const Container = styled.View`
     flex: 1;
@@ -7,31 +7,32 @@ export const Container = styled.View`
     align-items: center;
 `
 
+export const Content = styled.View`
+    width: 100%;
+    padding: 0 50px;
+    margin-top: -40px;
+`
+
 export const Illustration = styled.Image`
     width: 100%;
     height: 360px;
 ` 
 
-export const Content = styled.View`
-    margin-top: -40px;
-    padding: 0 50px;
-    width: 100%;
+
+export const Subtitle = styled.Text`
+    font-family: ${theme.FONTS.TEXT_400};
+    font-size: 15px;
+    text-align: center;
+    line-height: 25px;
+    color: ${theme.COLORS.HEADING};
+    margin-bottom: 64px;
 `
 
 export const Title = styled.Text`
-    color: ${theme.COLORS.HEADING};
-    font-size: 40px;
     font-family: ${theme.FONTS.TITLE_700};
+    font-size: 40px;
     text-align: center;
     line-height: 40px;
-    margin-bottom: 16px;
-`
-
-export const Subtitle = styled.Text`
     color: ${theme.COLORS.HEADING};
-    font-size: 15px;
-    font-family: ${theme.FONTS.TEXT_400};
-    text-align: center;
-    line-height: 25px;
-    margin-bottom: 64px;
+    margin-bottom: 16px;
 `
