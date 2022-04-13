@@ -1,9 +1,9 @@
-import { Container, Content, Title, Type } from './styles';
+import { View, TouchableOpacityProps } from 'react-native'
+import { Container, Content, Title, Type } from './styles'
 
-import { View, TouchableOpacityProps } from 'react-native';
+import theme from '../../global/styles/theme'
 import { Feather } from '@expo/vector-icons'
 import GuildIcon from '../GuildIcon'
-import theme from '../../global/styles/theme';
 
 export type GuildProps = {
     id: string;
@@ -40,5 +40,5 @@ export default function Guild({ data, ...rest }: Props){
         />
 
     </Container>
-  );
+  )
 }
