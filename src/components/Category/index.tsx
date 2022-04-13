@@ -1,17 +1,16 @@
 import {
-    styles,
-    Content,
+    Container,
     Checked,
+    Content,
     Unchecked,
     Title
-} from './styles';
+} from './styles'
 
-import { SvgProps } from 'react-native-svg';
-
-import { RectButton, RectButtonProps } from 'react-native-gesture-handler'
+import { RectButtonProps } from 'react-native-gesture-handler'
 import { LinearGradient } from 'expo-linear-gradient'
-import theme from '../../global/styles/theme';
 
+import theme from '../../global/styles/theme'
+import { SvgProps } from 'react-native-svg'
 
 type Props = RectButtonProps & {
     title: string;
@@ -20,20 +19,19 @@ type Props = RectButtonProps & {
     checked?: boolean;
 }
 
+
 export default function Category({
     title,
     icon: Icon,
     hasCheckBox = false,
     checked = false,
     ...rest
-} : Props){
+}: Props){
     const { SECONDARY_40, SECONDARY_50, SECONDARY_70, SECONDARY_85 } = theme.COLORS
 
     return (
-    <RectButton {...rest}>
-        <LinearGradient 
-            style={styles.container}
-            colors={[SECONDARY_50, SECONDARY_70]}>
+    <Container {...rest}>
+        <LinearGradient colors={[SECONDARY_50, SECONDARY_70]}>
             <Content 
                 style={{ opacity: checked ? 1 : 0.5 }}
                 colors={[checked ? SECONDARY_85 : SECONDARY_50, SECONDARY_40 ]}
@@ -46,6 +44,6 @@ export default function Category({
                 <Title>{ title }</Title>
             </Content>
         </LinearGradient>
-    </RectButton>
-    );
+    </Container>
+    )
 }
