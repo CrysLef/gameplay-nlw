@@ -1,13 +1,13 @@
-import { StyleSheet } from "react-native";
+import styled from "styled-components/native";
+import { RectButton } from "react-native-gesture-handler";
 import theme from "../../global/styles/theme";
 
-export const styles = StyleSheet.create({
-    container: {
-        height: 48,
-        width: 48,
-        backgroundColor: theme.COLORS.PRIMARY,
-        borderRadius: 8,
-        alignItems: 'center',
-        justifyContent: 'center',
-    }
-})
+export const Container = styled(RectButton)`
+    height: 48px;
+    width: 48px;
+    justify-content: center;
+    align-items: center;
+    background-color: ${theme.COLORS.PRIMARY};
+    border-radius: 8px;
+
+`
