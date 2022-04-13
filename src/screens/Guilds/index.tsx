@@ -1,9 +1,7 @@
-import { Container, GuildList } from './styles';
+import { Container, GuildList } from './styles'
 
 import ListDivider from '../../components/ListDivider'
-
-import { GuildProps } from '../../components/Guild';
-
+import { GuildProps } from '../../components/Guild'
 import Guild from '../../components/Guild'
 
 type Props = {
@@ -40,8 +38,9 @@ export default function Guilds({ handleGuildSelect }: Props) {
           />
         )}
         showsVerticalScrollIndicator={false}
-        ItemSeparatorComponent={() => <ListDivider />}
+        ItemSeparatorComponent={() => <ListDivider isCentered />}
+        contentContainerStyle={{ paddingBottom: 68 }}
       />
     </Container>
-  );
+  )
 }
