@@ -18,6 +18,7 @@ export const Title = styled.Text`
     color: ${theme.COLORS.HEADING};
     font-size: 15px;
     text-align: center;
+    font-family: ${theme.FONTS.TEXT_500};
 `
 
 export const IconWrapper = styled.View`
