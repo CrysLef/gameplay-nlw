@@ -1,18 +1,15 @@
 import { 
+    BulletStatus,
     Container,
-    Username,
-    Status,
     NameStatus,
-    BulletStatus
-} from './styles';
+    Status,
+    Username,
+} from './styles'
 
-import {
-  View,
-  Text
-} from 'react-native';
+import { View } from 'react-native'
 
-import Avatar from '../Avatar';
-import theme from '../../global/styles/theme';
+import Avatar from '../Avatar'
+import theme from '../../global/styles/theme'
 
 export type MemberProps = {
     id: string;
@@ -25,25 +22,25 @@ type Props = {
     data: MemberProps;
 }
 
+
 export default function Members({ data }: Props){
+    const isOnline = data.status === 'online'
     const { ON, PRIMARY } = theme.COLORS
-    const isOnline = data.status === 'online';
-  return (
-    <Container>
-        <Avatar urlImage={data.avatar_url} />
-        <View>
-            <Username>{ data.username }</Username>
-            <Status>
-                <BulletStatus
-                    style={{
-                        backgroundColor: isOnline ? ON : PRIMARY
-                    }}
-                />
-                <NameStatus>
-                    { isOnline ? 'Disponível' : 'Ocupado' }
-                </NameStatus>
-            </Status>
-        </View>
-    </Container>
-  );
+
+    return (
+        <Container>
+            <Avatar urlImage={data.avatar_url} />
+            <View>
+                <Username>{ data.username }</Username>
+                <Status>
+                    <BulletStatus
+                        style={{ backgroundColor: isOnline ? ON : PRIMARY }}
+                    />
+                    <NameStatus>
+                        { isOnline ? 'Disponível' : 'Ocupado' }
+                    </NameStatus>
+                </Status>
+            </View>
+        </Container>
+    )
 }

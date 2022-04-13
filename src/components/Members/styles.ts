@@ -1,5 +1,13 @@
-import styled from 'styled-components/native';
-import theme from '../../global/styles/theme';
+import styled from 'styled-components/native'
+import theme from '../../global/styles/theme'
+
+
+export const BulletStatus = styled.View`
+   width: 8px;
+   height: 8px;
+   margin-right: 9px;
+   border-radius: 4px;
+`
 
 export const Container = styled.View`
    width: 100%;
@@ -7,10 +15,10 @@ export const Container = styled.View`
    align-items: center;
 `
 
-export const Username = styled.Text`
-   font-family: ${theme.FONTS.TITLE_700};
-   color: ${theme.COLORS.HEADING};
-   font-size: 18px;
+export const NameStatus = styled.Text`
+   font-family: ${theme.FONTS.TEXT_400};
+   font-size: 13px;
+   color: ${theme.COLORS.HIGHLIGHT};
 `
 
 export const Status = styled.View`
@@ -18,15 +26,8 @@ export const Status = styled.View`
    align-items: center;
 `
 
-export const NameStatus = styled.Text`
-   font-family: ${theme.FONTS.TEXT_400};
-   color: ${theme.COLORS.HIGHLIGHT};
-   font-size: 13px;
-`
-
-export const BulletStatus = styled.View`
-   width: 8px;
-   height: 8px;
-   border-radius: 4px;
-   margin-right: 9px;
+export const Username = styled.Text`
+   font-family: ${theme.FONTS.TITLE_700};
+   font-size: 18px;
+   color: ${theme.COLORS.HEADING};
 `
