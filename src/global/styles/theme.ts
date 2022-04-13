@@ -11,7 +11,6 @@ export default {
         SECONDARY_50: '#243189',
         SECONDARY_40: '#495BCC',
 
-
         OVERLAY: 'rgba(0,0,0,0.7)',
         HIGHLIGHT: '#ABB1CC',
         HEADING: '#DDE3F0',
@@ -19,8 +18,8 @@ export default {
         ON: '#32BD50'
     },
     FONTS: {
-        TITLE_700: 'Rajdhani_700Bold',
         TITLE_500: 'Rajdhani_500Medium',
+        TITLE_700: 'Rajdhani_700Bold',
         TEXT_400: 'Inter_400Regular',
         TEXT_500: 'Inter_500Medium',
     },
