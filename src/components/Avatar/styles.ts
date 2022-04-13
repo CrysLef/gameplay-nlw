@@ -1,19 +1,17 @@
-import styled from 'styled-components/native';
-import { StyleSheet } from 'react-native';
+import styled from 'styled-components/native'
+import { LinearGradient } from 'expo-linear-gradient'
 
 export const AvatarIcon = styled.Image`
     width: 46px;
     height: 46px;
-    border-radius: 8;
+    border-radius: 8px;
 `
 
-export const styles = StyleSheet.create({
-    gradientStyle: {
-        width: 49,
-        height: 49,
-        borderRadius: 8,
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginRight: 22
-    }
-})
+export const Gradient = styled(LinearGradient)`
+    width: 49px;
+    height: 49px;
+    justify-content: center;
+    align-items: center;
+    margin-right: 22px;
+    border-radius: 8px;
+`
