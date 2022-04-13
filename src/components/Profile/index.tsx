@@ -8,14 +8,11 @@ import {
 
 import Avatar from '../Avatar';
 
-import {
-  View,
-} from 'react-native';
+import { View, ViewProps } from 'react-native';
 
-
-export default function Profile(){
+export default function Profile({...rest}: ViewProps){
   return (
-    <Container>
+    <Container {...rest}>
         <Avatar urlImage='https://github.com/CrysLef.png'/>
         <View>
             <User>
