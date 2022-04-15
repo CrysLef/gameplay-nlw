@@ -3,7 +3,7 @@ import theme from '../../global/styles/theme'
 import { LinearGradient } from 'expo-linear-gradient'
 import { RectButton } from 'react-native-gesture-handler'
 
-export const Container = styled(RectButton)`
+export const Container = styled(LinearGradient)`
    width: 104px;
    height: 120px;
    justify-content: center;

@@ -6,8 +6,7 @@ import {
     Title
 } from './styles'
 
-import { RectButtonProps } from 'react-native-gesture-handler'
-import { LinearGradient } from 'expo-linear-gradient'
+import {  RectButton, RectButtonProps } from 'react-native-gesture-handler'
 
 import theme from '../../global/styles/theme'
 import { SvgProps } from 'react-native-svg'
@@ -30,8 +29,8 @@ export default function Category({
     const { SECONDARY_40, SECONDARY_50, SECONDARY_70, SECONDARY_85 } = theme.COLORS
 
     return (
-    <Container {...rest}>
-        <LinearGradient colors={[SECONDARY_50, SECONDARY_70]}>
+    <RectButton {...rest}>
+        <Container colors={[SECONDARY_50, SECONDARY_70]}>
             <Content 
                 style={{ opacity: checked ? 1 : 0.5 }}
                 colors={[checked ? SECONDARY_85 : SECONDARY_50, SECONDARY_40 ]}
@@ -43,7 +42,7 @@ export default function Category({
                 />
                 <Title>{ title }</Title>
             </Content>
-        </LinearGradient>
-    </Container>
+        </Container>
+    </RectButton>
     )
 }
