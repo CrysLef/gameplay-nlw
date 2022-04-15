@@ -6,20 +6,26 @@ import {
   Title,
 } from './styles'
 
+import { Alert, ActivityIndicator } from 'react-native'
+
 import Background from "../../components/Background"
 import ButtonIcon from '../../components/ButtonIcon'
 
-import { useNavigation } from '@react-navigation/native'
+import { useAuth } from '../../hooks/auth'
 
 import illustrationImage from '../../assets/illustration.png' 
 import theme from '../../global/styles/theme'
 
 export default function SignIn(){
-  const navigation = useNavigation()
+  const { loading, signIn } = useAuth()
   const { SECONDARY_80, SECONDARY_100 } = theme.COLORS
   
-  function handleSignIn() {
-    navigation.navigate('Home')  
+  async function handleSignIn() {
+    try {
+      await signIn()
+    } catch (error) {
+      Alert.alert(error)
+    }
   }
 
   
@@ -44,10 +50,12 @@ export default function SignIn(){
             favoritos com seus amigos
           </Subtitle>
 
-          <ButtonIcon 
-            title='Entrar com Discord'
-            onPress={handleSignIn}
-          />
+          {
+            loading 
+            ? <ActivityIndicator color={theme.COLORS.PRIMARY} />
+            : <ButtonIcon title='Entrar com Discord' onPress={handleSignIn} />
+          }
+          
         </Content>
 
       </Container>
