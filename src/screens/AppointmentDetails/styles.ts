@@ -1,13 +1,13 @@
 import styled from 'styled-components/native'
 import theme from '../../global/styles/theme'
 import { getBottomSpace } from 'react-native-iphone-x-helper'
-import { FlatList } from 'react-native'
+import { FlatList, ImageBackground } from 'react-native'
 
 
-export const Banner = styled.ImageBackground`
+export const Banner = (styled.ImageBackground`
    width: 100%;
    height: 234px;
-`
+` as unknown) as typeof ImageBackground
 
 export const BannerContent = styled.View`
    flex: 1;
