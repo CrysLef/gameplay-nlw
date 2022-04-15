@@ -8,6 +8,11 @@ export const CaracteresLimit = styled.Text`
    color: ${theme.COLORS.HIGHLIGHT};
 `
 
+export const Column = styled.View`
+   flex-direction: row;
+   align-items: center;
+`
+
 export const Container = styled.KeyboardAvoidingView`
    flex: 1;  
 `
